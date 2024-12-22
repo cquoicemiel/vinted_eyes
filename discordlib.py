@@ -5,7 +5,7 @@ def send_item_to_discord(webhook_url, item):
     embed = {
         "title": f"{item['title']}",
         "url": f"{item['url']}",
-        "description": f"**Prix:** {item['price']}{item['currency']} **~** {item['total_item_price']}{item['currency']}\n**Marque:** {item['brand_title']}\n**Taille:** {item['size_title']}\n**{item['favourite_count']}** ❤️ **~** **{item['view_count']}** 👁️\n**État:** {item['status']}",
+        "description": f"**Prix:** {item['price']["amount"]}{item["price"]['currency_code']} **~** {item['total_item_price']["amount"]}{item['total_item_price']["currency_code"]}\n**Marque:** {item['brand_title']}\n**Taille:** {item['size_title']}\n**{item['favourite_count']}** ❤️ **~** **{item['view_count']}** 👁️\n**État:** {item['status']}",
         "image": {"url": item['photo']['full_size_url']},
         "color": 15548997 if item['photo']['is_suspicious'] else 5763719,
         "author": {
@@ -15,7 +15,7 @@ def send_item_to_discord(webhook_url, item):
         },
         "footer": {
             "text": "旺代柚子镇",
-            "icon_url": "https://cdn.discordapp.com/embed/avatars/4.png"
+            "icon_url": "https://cdn.discordapp.com/avatars/1162747302486753452/8ec77d35c160ebd9ba7d6d93090590dc.webp?size=512"
         },
         "timestamp": f"{datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'}"
     }
