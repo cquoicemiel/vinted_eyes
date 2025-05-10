@@ -1,12 +1,16 @@
 import time
-import vintedlib
-import discordlib
+import libs.vintedlib as vintedlib
+import libs.discordlib as discordlib
 import atexit
+import os
+from dotenv import load_dotenv
 
 
 @atexit.register
 def on_close():
     discordlib.send_alert_to_discord(discord_webhook_url, "off")
+
+load_dotenv()
 
 
 headers = {
@@ -32,7 +36,7 @@ cookies = {
 # url à surveiller
 vinted_url = "https://www.vinted.fr/api/v2/catalog/items?page=1&per_page=96&search_text=jean%20levis%20homme%20w31%20l31&order=newest_first&catalog[]=257&order=newest_first"
 # url du webhook discord
-discord_webhook_url = "https://discord.com/api/webhooks/1273472019563941890/VR8TPuM5aENonzjU20VCF0XxNmYJch3J3PmmdyABxH5c1-_2trWMnenudYCIRnllVDx9"
+discord_webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 
 response = vintedlib.fetch_vinted_data(vinted_url, headers, cookies)
 

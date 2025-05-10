@@ -1,8 +1,8 @@
 import csv
 import datetime
 import os
-import vintedlib
-import discordlib
+import libs.vintedlib as vintedlib
+import libs.discordlib as discordlib
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
