@@ -1,4 +1,4 @@
-# Vinted Fetcher
+# Scrapping Vinted
 
 Ce projet permet de récupérer des articles depuis Vinted à l'aide de l'API publique.
 
